@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def index():
     return render_template('login.html', template_folder='auth')
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
@@ -16,7 +16,7 @@ def login():
     else:
         return redirect("/")
 
-@app.route("/login-success")
+@app.route("/login-success", methods=["GET"])
 def login_success():
     return render_template('login-success.html', template_folder='auth')
 
