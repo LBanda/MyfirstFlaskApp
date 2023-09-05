@@ -2,9 +2,9 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def index():
-    return render_template("templates\login.html")
+    return render_template('login.html', template_folder='auth')
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -18,7 +18,7 @@ def login():
 
 @app.route("/login-success")
 def login_success():
-    return render_template("templates\login-success.html")
+    return render_template('login-success.html', template_folder='auth')
 
 
 if __name__ == "__main__":
