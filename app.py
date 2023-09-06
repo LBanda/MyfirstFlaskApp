@@ -12,9 +12,9 @@ def login():
     password = request.form.get("password")
 
     if username.capitalize() and password.isalnum():
-        return redirect("/login-success")
+        return render_template('login-success.html', template_folder='auth')
     else:
-        return redirect("/")
+        return render_template('login.html', template_folder='auth')
 
 @app.route("/login-success", methods=["GET"])
 def login_success():
